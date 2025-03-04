@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unguard-proxy-service
+  labels:
+    app.kubernetes.io/name: proxy-service
+    app.kubernetes.io/part-of: unguard
+    
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: proxy-service
+      app.kubernetes.io/part-of: unguard
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: proxy-service
+        app.kubernetes.io/part-of: unguard
+        
+    spec:
+      serviceAccountName: unguard-proxy
+      containers:
+        - name: proxy-service
+          image: ghcr.io/dynatrace-oss/unguard/unguard-proxy-service:0.9.4
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SERVER_PORT
+              value: "8081"
+            - name: OPENTRACING_JAEGER_ENABLED
+              value: "false"
+            - name: JAEGER_SERVICE_NAME
+              value: "unguard-proxy-service"
+            - name: JAEGER_AGENT_HOST
+              value: "jaeger-agent"
+            - name: JAEGER_SAMPLER_TYPE
+              value: "const"
+            - name: JAEGER_SAMPLER_PARAM
+              value: "0"
