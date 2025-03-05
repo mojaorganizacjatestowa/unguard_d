@@ -6,6 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: status-service
     app.kubernetes.io/part-of: unguard
+    add: 3
     
 spec:
   selector:
