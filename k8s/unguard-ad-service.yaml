@@ -47,7 +47,7 @@ spec:
             - name: JAEGER_DISABLED
               value: "true"
 ---
-# Source: unguard/templates/envoy-proxy.yaml
+# Source: unguard/templates/envoy-proxy.yaml 2
 apiVersion: apps/v1
 kind: Deployment
 metadata:
