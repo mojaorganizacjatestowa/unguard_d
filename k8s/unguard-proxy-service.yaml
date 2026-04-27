@@ -18,6 +18,7 @@ spec:
       labels:
         app.kubernetes.io/name: proxy-service
         app.kubernetes.io/part-of: unguard
+        version.chekc: 0.9.4-1
         
     spec:
       serviceAccountName: unguard-proxy
