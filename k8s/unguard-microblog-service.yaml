@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: microblog-service
-          image: ghcr.io/dynatrace-oss/unguard/unguard-microblog-service:0.9.4
+          image: ghcr.io/dynatrace-oss/unguard/unguard-microblog-service:0.11.2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
