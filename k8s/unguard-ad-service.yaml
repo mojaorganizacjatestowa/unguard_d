@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: ad-service
-          image: ghcr.io/dynatrace-oss/unguard/unguard-ad-service:0.9.4
+          image: ghcr.io/dynatrace-oss/unguard/unguard-ad-service:0.11.2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8082
@@ -72,7 +72,7 @@ spec:
     spec:
       containers:
         - name: envoy-proxy
-          image: ghcr.io/dynatrace-oss/unguard/unguard-envoy-proxy:0.9.4
+          image: ghcr.io/dynatrace-oss/unguard/unguard-envoy-proxy:0.11.2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
